@@ -6,7 +6,7 @@ from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.bash import BashOperator
 
-my_dag = DAG("my_first_dag", start_date=pendulum.datetime(2023, 3, 3, tz="UTC"),
+my_first_dag = DAG("my_first_dag", start_date=pendulum.datetime(2023, 3, 3, tz="UTC"),
              schedule="@daily", catchup=False)
 op = EmptyOperator(task_id="empty_task", dag=my_first_dag)
 bash_task = BashOperator(
